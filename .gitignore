@@ -20,6 +20,8 @@ dist/
 .env.*
 *.pem
 *.key
+# 但模板文件要留着，方便以后换机器照着填
+!.env.example
 !example.env
 
 # 编辑器

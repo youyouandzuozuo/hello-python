@@ -17,6 +17,20 @@
 
 ---
 
+## 2026-09-08 | 第1周 | 投入 60+ 分钟 | 机器：单位
+
+- 看了：0.2 全课程内容导学、1.1 程序设计基本方法
+- 理解了：IPO —— 输入(Input) → 处理(Process) → 输出(Output)。以后看不懂的代码，先问「它的 I 是什么、O 是什么」
+- 敲了：hello.py 在 VS Code 终端跑通（venv 激活，提示符前有 `(.venv)`）
+- 卡住：PowerShell 里跑 `curl -H ... -d ...` 报 `ParameterBindingException`
+- 状态：已解决 —— **PowerShell 的 curl 是 `Invoke-WebRequest` 的别名，不是真 curl**，要写 `curl.exe` 才行。改用 Python 标准库脚本验证，更省事
+- 环境：VS Code 已信任 `D:\cs-learning`（Python 扩展生效，语法高亮正常）
+- 钥匙：DeepSeek key 存 `.env`，代码里用 `os.getenv()` 读，不写进 .py、不进 git
+- 验证：`test_deepseek.py` 跑通，DeepSeek 回「成功」。记住 **401 = key 错，402 = 余额不足**（两者别搞混）
+- 下次从哪开始：A 段 1.3 温度转换 → 1.4 语法元素分析；B 段手敲温度转换 5 遍（不许用 if 和循环）
+
+---
+
 ## 2026-09-__ | 第_周 | 投入 __ 分钟 | 机器：家 / 单位
 
 - 看了：（例：1.3 温度转换、1.4 语法元素分析）
