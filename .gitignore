@@ -34,3 +34,6 @@ desktop.ini
 
 # 自检脚本的输出
 env-result.txt
+
+# NVIDIA 驱动偶尔会在当前目录吐个日志文件夹，跟学习无关
+NVIDIA Corporation/
