@@ -1,0 +1,36 @@
+# 虚拟环境
+.venv/
+venv/
+env/
+
+# Python 缓存
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# 打包/分发
+build/
+dist/
+*.egg-info/
+.installed.cfg
+
+# 环境变量与密钥（绝不上传）
+.env
+.env.*
+*.pem
+*.key
+!example.env
+
+# 编辑器
+.vscode/
+.idea/
+*.swp
+
+# 系统
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# 自检脚本的输出
+env-result.txt
