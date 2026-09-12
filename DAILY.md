@@ -315,6 +315,74 @@ F = eval(TempStr[0:-1])*1.8+32     # 改后：同样只包住切片
 
 ---
 
+## 附录 · Python 保留字 35 个（2026-09-12）
+
+> 本机 Python 3.14.7 实测：`len(keyword.kwlist)` = **35**
+> **教材（嵩天）说 33 个** —— 差的就是 `async` / `await`（Python 3.7 加的，讲异步编程，你很久才用得上）
+
+### 按用途分 8 组（3+3+5+5+5+5+5+4 = 35）
+
+| 组 | 个数 | 保留字 |
+|---|---|---|
+| **三个值**（唯一大写开头） | 3 | `True` `False` `None` |
+| **判断** | 3 | `if` `elif` `else` |
+| **逻辑运算** | 5 | `and` `or` `not` `is` `in` |
+| **循环** | 5 | `for` `while` `break` `continue` `pass` |
+| **函数与类** | 5 | `def` `return` `lambda` `class` `yield` |
+| **异常处理** | 5 | `try` `except` `finally` `raise` `assert` |
+| **导入与作用域** | 5 | `import` `from` `as` `global` `nonlocal` |
+| **其余** | 4 | `del` `with` `async` `await` |
+
+### 计数口诀
+
+> **三三开头，五个五，末尾四个补上数。**
+> 3 + 3 + 5×5 + 4 = 35
+
+### 三条真正管用的记法
+
+**① 只有三个是大写开头 —— `True` `False` `None`**
+其余 32 个**全是小写**。所以看到大写开头的，必然是这三个值之一。
+反过来说：**你的变量名永远别用大写开头**，天然不会撞。
+
+**② 别背表，靠颜色认**
+VS Code 里保留字会**变色**（紫色/蓝色）。你起变量名的时候，如果敲完发现它**变成彩色了**，那就是撞上保留字了，改个名就行。
+**见到认识就够了，不需要默写。**
+
+**③ 真正会用到的不到 20 个**
+`lambda` `yield` `global` `nonlocal` `async` `await` `assert` `del` —— 这些你现在碰不到。
+第 1 周你只需要 **3 个**：`if` `elif` `else`。
+
+### 最容易搞混的：**这些不是保留字**
+
+`print` `input` `eval` `format` `list` `str` `int` `float` `len` `type`
+
+它们是**内置函数**，不是保留字（实测 `keyword.iskeyword('print')` = `False`）。
+
+**后果比保留字更阴**：
+
+```python
+print = 5          # 不报错！合法的
+print("hello")     # TypeError: 'int' object is not callable
+```
+
+保留字你根本**没法**拿它当变量名（语法直接报错，立刻发现）；
+内置函数却**能**被覆盖（不报错，但那个功能从此废掉，报错信息还很怪）。
+
+**所以：宁可撞保留字，别撞内置函数名。** 撞前者当场发现，撞后者查半天。
+
+### 随查随用
+
+```python
+import keyword
+keyword.kwlist                  # 全部 35 个
+keyword.iskeyword("print")      # False —— 不是保留字
+keyword.softkwlist              # ['_', 'case', 'match', 'type'] 软关键字
+```
+
+**软关键字**（`match` `case` `type` `_`）只在特定语法里有特殊含义，**可以当变量名用**，别跟真保留字混为一谈。
+
+---
+
 ## 附录 · 花括号 `{}` 语法速查（2026-09-10）
 
 **本质**：挖坑 + 填值。冒号**前**决定填哪个值，冒号**后**决定显示成什么样。
