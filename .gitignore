@@ -39,3 +39,6 @@ env-result.txt
 
 # NVIDIA 驱动偶尔会在当前目录吐个日志文件夹，跟学习无关
 NVIDIA Corporation/
+
+# 密钥明文，绝不进仓库（token/key 一律不落地，用完即吊销）
+密钥.txt
